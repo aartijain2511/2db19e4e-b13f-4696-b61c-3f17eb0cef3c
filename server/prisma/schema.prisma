@@ -1,0 +1,17 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model DeviceSavings {
+  id               String   @id @default(auto()) @map("_id") @db.ObjectId
+  carbon_saved     Float
+  device_id        Int
+  device_timestamp DateTime @db.Date
+  fueld_saved      Float
+  timestamp        DateTime @db.Date
+}

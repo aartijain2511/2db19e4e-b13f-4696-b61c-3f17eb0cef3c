@@ -1,0 +1,19 @@
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.react-datetimerange-picker--disabled {
+  background-color: white;
+  color: black;
+}
+
+.react-datetimerange-picker__wrapper {
+  display: flex;
+  flex-grow: 1;
+  flex-shrink: 0;
+  border-radius: 5px;
+  border: thin solid #cdd7ee;
+}
