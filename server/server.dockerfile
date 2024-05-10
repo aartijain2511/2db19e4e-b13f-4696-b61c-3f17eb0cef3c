@@ -19,7 +19,7 @@ COPY . .
 RUN npm run build
 
 # Expose the port your app runs on
-EXPOSE 3000
+EXPOSE 8080
 
 # Command to run your app using node
-CMD ["node", "dist/index.js"]
+CMD ["node", "dist/src/index.js"]

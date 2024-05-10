@@ -1,9 +1,5 @@
-version: '3.9'
-
 services:
   frontend:
-    container_name: client
-    image: client
     build:
       context: ./client
       dockerfile: client.dockerfile
@@ -15,8 +11,6 @@ services:
     depends_on:
       - backend
   backend:
-    container_name: server
-    image: server
     build:
       context: ./server
       dockerfile: server.dockerfile
