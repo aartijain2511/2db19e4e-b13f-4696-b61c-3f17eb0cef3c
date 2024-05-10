@@ -25,9 +25,10 @@ GET /api/savings
 __Query Parameters__
 | __Query parameter__ | __Required/Optional__ | __Description__                                                                                                                                                          | __Type__ |
 | ------------------ | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------- |
-| id      | REQUIRED     | The unique device id for which you want to fetch the device savings data.                      | Integer  |  |
-| from    | REQUIRED     | The start date in ISO String format from which you want to fetch the device savings data.      | String   |  |
-| to      | REQUIRED     | The end date in ISO String format until which which you want to fetch the savings data.        | String   |  |
+| id      | REQUIRED     | The unique device id for which you want to fetch the device savings data.                                                                          | Integer  |  |
+| from    | REQUIRED     | The start date in ISO String format from which you want to fetch the device savings data.                                                                          | String   |  |
+| to      | REQUIRED     | The end date in ISO String format until which you want to fetch the savings data.                                                                          | String   |  |
+| timezone  | OPTIONAL  | The timezone as a string formatted to an Olson Timezone Identifier for which you want to display the savings data dates. If not specified will display dates in accordance with UTC | String   |  |
 
 __Sample response__
 ```json

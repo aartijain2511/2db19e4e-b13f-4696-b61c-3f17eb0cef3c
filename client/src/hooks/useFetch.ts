@@ -42,6 +42,7 @@ const useFetch = () => {
     if (Array.isArray(dateRange)) {
       let from = dateRange[0]?.toISOString();
       let to = dateRange[1]?.toISOString();
+      const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
       if (from && to) {
         from = roundMinutes(from);
@@ -73,7 +74,7 @@ const useFetch = () => {
 
         try {
           const res = await fetch(
-            `${API_URL}/api/savings?id=${deviceId}&from=${from}&to=${to}`,
+            `${API_URL}/api/savings?id=${deviceId}&from=${from}&to=${to}&timezone=${timezone}`,
           );
 
           if (!res.ok) {

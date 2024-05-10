@@ -1,6 +1,7 @@
 import prisma from "../db";
 import { RequestHandler } from "express";
 import { Prisma } from "@prisma/client";
+import { isValidTimeZone } from "../../utils/isValidTimeZone";
 
 type SavingsData = {
   _id: {
@@ -22,6 +23,7 @@ const getSavings: RequestHandler = async (req, res) => {
   const deviceId = req.query?.id;
   const from = req.query?.from;
   const to = req.query?.to;
+  const timezone =  isValidTimeZone(req.query?.timezone?.toString()) ? req.query?.timezone : "UTC";
 
   if (deviceId && from && to) {
     if (+deviceId < 1 || +deviceId > 10) {
@@ -54,7 +56,7 @@ const getSavings: RequestHandler = async (req, res) => {
             $group: {
               _id: {
                 date: {
-                  $dateToString: { format: "%Y-%m-%d", date: "$timestamp" },
+                  $dateToString: { format: "%Y-%m-%d", date: "$timestamp", timezone: timezone },
                 },
               },
               carbon_saved_sum: { $sum: "$carbon_saved" },
